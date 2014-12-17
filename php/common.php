@@ -3,6 +3,7 @@
 /**
  * 分段下载 当一个文件很大的时候,如果一次下载，内存会不够用，可以使用分段下载
  *
+ * DEMO:
  * $success = file_get_contents_chunked("my/large/file",4096,function($chunk,&$handle,$iteration){
  *     //处理$chunk的方法，本例中已经读取了4096字节在内存中，此处你可以写入文件 或者什么操作
  * }

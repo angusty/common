@@ -8,7 +8,7 @@
      * 实现将搜索框的关键字附加于url末尾，通过URL的GET方式传递(用于非?name=a&b=c的方式传递)
      * 比如： url ： http://localhost.com/demo/test.php
      *
-     * 使用例子：
+     * DEMO
      * var url = window.location.href,
      *     key_words = '名人';
      * new_url = addVariableToURL(url, 'key_words_search', key_words, '/', '.html');
