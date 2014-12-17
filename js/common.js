@@ -3,7 +3,7 @@
  */
 <script type="text/javascript">
 
-    //重写js的trim()方法  调用方法，对象方式，
+    //重写js的trim()方法，对象方式调用，javascript1.8.1才支持trim函数，适用于之前版本的javascript
     String.prototype.trim = function() {
         var str = this,
         whitespace = ' \n\r\t\f\x0b\xa0\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u200b\u2028\u2029\u3000';
@@ -22,7 +22,7 @@
         return whitespace.indexOf(str.charAt(0)) === -1 ? str : '';
     }
 
-    //另一个 重写js的trim()的方法，javascript1.8.1才支持trim函数，适用于之前版本的javascript
+    //另一个重写js的trim()方法，对象方式调用，javascript1.8.1才支持trim函数，适用于之前版本的javascript
     String.prototype.trim = function() {
         var str = this,
         str = str.replace(/^\s+/, '');
