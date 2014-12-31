@@ -33,3 +33,34 @@ function file_get_contents_chunked($file, $chunk_size, $callback)
     }
     return true;
 }
+
+/**
+ * 返回前一个URL
+ * @param  string $host_domain 域名
+ * @param stirng  $default_url 默认url
+ * @param array $exclude_url   排除url 当从这些url过来的时候，不跳回原url
+ * @return string url   返回url
+ */
+function returnURL($host_domain, $default_url, array $exclude_url=null)
+{
+    $last_url = $_SERVER['HTTP_REFERER'];
+    if (empty($last_url) ) {  //如果过来的url为空 给个默认值
+        $last_url = $default_url;
+    } else { //不为空则分解url
+        $parse_url = parse_url($last_url);
+        $host = $parse_url['host'];
+    }
+    //判断过来的url是不是本域名的，不是本域名来的 不跳回原来的url
+    if (strpos($host, $host_domain) === false) {
+        $last_url = $default_url;
+    }
+    if (!empty($exclude_url)) {
+        foreach($exclude_url as $key=>$url) {
+            if(strpos($last_url, $url) !== false) {
+                $last_url = $default_url;
+                break;
+            }
+        }
+    }
+    return $last_url;
+}
