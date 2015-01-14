@@ -3,12 +3,12 @@
  * description: discuz接口
  * @author: yangbo
  * @date: 2015/1/13 14:15
- * @return 
+ * @return
  */
 
 namespace Org;
 
-class DiscuzServer
+class DiscuzService
 {
     //初始化加载文件
     public function __construct()
