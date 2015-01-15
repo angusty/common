@@ -36,41 +36,63 @@ if (!function_exists('file_get_contents_chunked')) {
     }
 }
 
-/**
- * 根据返回的url跳回url，除了$exclude_url数组中的url，其它的都跳回default_url
- * @param  string $host_domain 域名
- * @param stirng  $default_url 默认url
- * @param array $exclude_url   当从这些url过来的时候，跳回原url
- * @return string url   返回url
- */
 if (!function_exists('returnURL')) {
-     function returnURL($host_domain, $default_url, array $exclude_url=null)
-     {
-         $last_url = $_SERVER['HTTP_REFERER'];
-         if (empty($last_url) ) {  //如果过来的url为空 给个默认值
-             $last_url = $default_url;
-         } else { //不为空则分解url
+    /**
+     * 跳转url函数，此函数依赖getLocalDomain()函数
+     * @author  yangbo
+     * @date    2015-01-15
+     * @param   string  $default_url  默认url
+     * @param   array|null  $exclude  排除url，当url中包含有$exclude则跳到默认的url，而不会返回到该url
+     * @return  url 地址
+     */
+    function returnURL($default_url, array $exclude = null)
+    {
+        $local_domain = getLocalDomain();
+        $last_url = $_SERVER['HTTP_REFERER'];;
+        //echo $last_url;
+        if (empty($last_url)) {
+             //如果过来的url为空 给个默认值
+            $last_url = $default_url;
+        } else {
+             //不为空则分解url
             $parse_url = parse_url($last_url);
-            $host = $parse_url['host'];
+            $last_host = $parse_url['host'];
+
             //判断过来的url是不是本域名的，不是本域名来的 不跳回原来的url
-            if (strpos($host, $host_domain) === false) {
+            if (strpos($last_host, $local_domain) === false) {
                 $last_url = $default_url;
             }
-         }
-         if (!empty($exclude_url)) {
-            $is_break = false;
-             foreach($exclude_url as $key=>$url) {
-                 if(strpos($last_url, $url) !== false) {
-                     $last_url = $url;
-                     $is_break = true;
-                     break;
-                 }
-             }
-             if ($is_break === false) {
-                $last_url = $default_url;
-             }
-         }
-         return $last_url;
-     }
- }
+        }
+        if (is_array($exclude) && !empty($exclude)) {
+            $is_break = false;// 标记是否匹配url
+            foreach ($exclude as $key => $url) {
+                if (strpos($last_url, $url) !== false) {
+                    $last_url = $default_url;
+                    $is_break = true;
+                    break;
+                }
+            }
+        }
+        return $last_url;
+    }
+}
 
+if (!function_exists('getLocalDomain')) {
+    /**
+     * 获得当前一级域名
+     * @author  yangbo
+     * @date    2015-01-15
+     * @return  domian 域名
+     */
+    function getLocalDomain()
+    {
+        $local_domain = $_SERVER['HTTP_HOST'];
+
+        //处理当前域名   形如 baidu.com 的形式
+        $local_domain_array = explode('.', $local_domain);
+        if (count($local_domain_array) === 3) {
+            $local_domain = $local_domain_array[1] . '.' . $local_domain_array[2];
+        }
+        return $local_domain;
+    }
+}
