@@ -36,16 +36,16 @@ if (!function_exists('file_get_contents_chunked')) {
     }
 }
 
-if (!function_exists('returnURL')) {
+if (!function_exists('getRefererUrl')) {
     /**
-     * 跳转url函数，此函数依赖getLocalDomain()函数
+     * 返回当前页面上一级URL地址函数，此函数依赖getLocalDomain()函数
      * @author  yangbo
      * @date    2015-01-15
      * @param   string  $default_url  默认url
      * @param   array|null  $exclude  排除url，当url中包含有$exclude则跳到默认的url，而不会返回到该url
      * @return  url 地址
      */
-    function returnURL($default_url, array $exclude = null)
+    function getRefererUrl($default_url, array $exclude = null)
     {
         $local_domain = getLocalDomain();
         $last_url = $_SERVER['HTTP_REFERER'];;
