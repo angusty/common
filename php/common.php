@@ -36,15 +36,15 @@ if (!function_exists('file_get_contents_chunked')) {
     }
 }
 
+/**
+ * 返回当前页面上一级URL地址函数，此函数依赖getLocalDomain()函数
+ * @author  yangbo
+ * @date    2015-01-15
+ * @param   string  $default_url  默认url
+ * @param   array|null  $exclude  排除url，当url中包含有$exclude则跳到默认的url，而不会返回到该url
+ * @return  url 地址
+ */
 if (!function_exists('getRefererUrl')) {
-    /**
-     * 返回当前页面上一级URL地址函数，此函数依赖getLocalDomain()函数
-     * @author  yangbo
-     * @date    2015-01-15
-     * @param   string  $default_url  默认url
-     * @param   array|null  $exclude  排除url，当url中包含有$exclude则跳到默认的url，而不会返回到该url
-     * @return  url 地址
-     */
     function getRefererUrl($default_url, array $exclude = null)
     {
         $local_domain = getLocalDomain();
@@ -77,13 +77,13 @@ if (!function_exists('getRefererUrl')) {
     }
 }
 
+/**
+ * 获得当前一级域名 baidu.com形式非 www.baidu.com形式
+ * @author  yangbo
+ * @date    2015-01-15
+ * @return  domian 域名
+ */
 if (!function_exists('getLocalDomain')) {
-    /**
-     * 获得当前一级域名
-     * @author  yangbo
-     * @date    2015-01-15
-     * @return  domian 域名
-     */
     function getLocalDomain()
     {
         $local_domain = $_SERVER['HTTP_HOST'];
