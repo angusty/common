@@ -14,7 +14,7 @@ class DiscuzService
     public function __construct()
     {
         include_once ('config.discuz.php');
-        include_once ('uc_client/discuz_client.php');
+        include_once ('uc_client/client.php');
     }
 
     /**
@@ -29,7 +29,7 @@ class DiscuzService
     {
         $return = false;
         if (!empty($uid)) {
-            $return  = uc_api_url('uc_note', 'getcredit', array('uid'=>$uid, 'credit'=>$credit));
+            $return  = discuz_api_url('uc_note', 'getcredit', array('uid'=>$uid, 'credit'=>$credit));
         }
         return $return;
     }
@@ -41,7 +41,7 @@ class DiscuzService
      */
     public function getCreditsettings()
     {
-        return uc_api_url('uc_note', 'getcreditsettings');
+        return discuz_api_url('uc_note', 'getcreditsettings');
     }
 
     /**
@@ -55,7 +55,7 @@ class DiscuzService
     {
         $return = false;
         if (!empty($uid)) {
-            $return = uc_api_url('uc_note', 'updatecredit', array('uid'=>$uid, 'credit'=>$credit, 'amount'=>$amount));
+            $return = discuz_api_url('uc_note', 'updatecredit', array('uid'=>$uid, 'credit'=>$credit, 'amount'=>$amount));
             $return = !empty($return) ? true: false;
         }
         return $return;
@@ -70,7 +70,7 @@ class DiscuzService
     {
         $reutn = false;
         if (!empty($uid)) {
-            $return = uc_api_url('uc_note', 'getUser', array('uid'=>$uid));
+            $return = discuz_api_url('uc_note', 'getUser', array('uid'=>$uid));
         }
         return $return;
     }
@@ -84,7 +84,7 @@ class DiscuzService
     {
         $return = false;
         if (!empty($uid)) {
-            $return = uc_api_url('uc_note', 'renameuser', array('uid'=>$uid, 'newusername'=>$newusername));
+            $return = discuz_api_url('uc_note', 'renameuser', array('uid'=>$uid, 'newusername'=>$newusername));
             $return = !empty($return) ? true : false;
         }
         return $return;
@@ -100,7 +100,7 @@ class DiscuzService
 //    {
 //        $return = false;
 //        if (!empty($username)) {
-//            $return = uc_api_url('uc_note', 'updatepw', array('username'=>$username, 'password'=>$password));
+//            $return = discuz_api_url('uc_note', 'updatepw', array('username'=>$username, 'password'=>$password));
 //            //$return = !empty($return) ? true : false;
 //        }
 //        return $return;

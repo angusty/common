@@ -4,8 +4,8 @@ $_CACHE['apps'] = array (
   array (
     'appid' => '2',
     'type' => 'DISCUZX',
-    'name' => 'bbs.thinkdemo.com',
-    'url' => 'http://bbs.thinkdemo.com',
+    'name' => 'bbs.myyiweimi.com',
+    'url' => 'http://bbs.myyiweimi.com',
     'ip' => '127.0.0.1',
     'viewprourl' => '',
     'apifilename' => 'uc.php',

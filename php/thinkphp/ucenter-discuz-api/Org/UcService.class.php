@@ -1,13 +1,22 @@
 <?php
-
 namespace Org;
-
 class UcService
 {
+    protected $instance = null;
     public function __construct()
     {
         include_once ('config.php');
-        include_once ('uc_client/client.php');
+        include ('uc_client/client.php');
+    }
+
+    public function getInstance()
+    {
+        if (!empty($instance)&&is_obj($instance)) {
+
+        } else {
+            $instance = new UcService();
+        }
+        return $instance;
     }
 
     public function register($username, $password, $email, $openid = 0)
@@ -84,11 +93,12 @@ class UcService
 
     public function checkUserNameExist($username)
     {
-        if (empty($username)) {
+         if (empty($username)) {
             return null;
         }
         return $uid = uc_checkUserNameExist($username);
     }
+
 
     /**
      * 同步退出登陆
@@ -299,10 +309,15 @@ class UcService
     public function updateUser($username, $oldpw, $newpw, $email = '', $ignoreoldpw = 0, $questionid = '', $answer = '')
     {
         $ucresult = uc_user_edit($username, $oldpw, $newpw, $email, $ignoreoldpw, $questionid, $answer);
-        $msg = array(-1 => '原密码不正确', -4 => 'Email 格式有误', -5 => 'Email 不允许注册', -6 => '该 Email 已经被注册', -7 => '没有做任何修改', -8 => '该用户受保护无权限更改',
-            0 => '没有做任何修改',
-            1 => '更新成功'
-        );
+        $msg = array(
+                -1 => '原密码不正确',
+                -4 =>'Email 格式有误',
+                -5 =>'Email 不允许注册',
+                -6 =>'该 Email 已经被注册',
+                -7 => '没有做任何修改',
+                -8 => '该用户受保护无权限更改',
+                0 => '没有做任何修改',
+                1 => '更新成功');
         if ($ucresult > 0) {
             $return_array['status'] = 1;
             $return_array['info'] = '修改成功';
@@ -324,8 +339,7 @@ class UcService
      * @param   [type]  $username  用户名
      * @return  [type]  [description]
      */
-    public function updateUserByUid($uid, $username)
-    {
+    public function updateUserByUid($uid, $username) {
         $data = uc_update_member_by_uid($uid, $username);
         return $data;
     }
