@@ -57,7 +57,6 @@ if (!function_exists('getRefererUrl')) {
              //不为空则分解url
             $parse_url = parse_url($last_url);
             $last_host = $parse_url['host'];
-
             //判断过来的url是不是本域名的，不是本域名来的 不跳回原来的url
             if (strpos($last_host, $local_domain) === false) {
                 $last_url = $default_url;
@@ -87,7 +86,6 @@ if (!function_exists('getLocalDomain')) {
     function getLocalDomain()
     {
         $local_domain = $_SERVER['HTTP_HOST'];
-
         //处理当前域名   形如 baidu.com 的形式
         $local_domain_array = explode('.', $local_domain);
         if (count($local_domain_array) === 3) {
