@@ -97,39 +97,34 @@ if (!function_exists('getLocalDomain')) {
 
 /**
  * 过去某个时间(或时间戳)离现在多久
- * @param $timeInt   时间戳 或 时间字符串
- * @param int $show_how_long  多少时间以内的按这个方法显示 超过的时间按原时间显示
- * @param string $format   超过参数2的时间 按这个格式化显示
+ * @param $ptime   时间戳 或 时间字符串
  * @return bool|string  成功返回相应数值 失败返回 空字符串
  */
 if (!function_exists('howLongFromPastToNow')) {
-    function howLongFromPastToNow($timeInt, $show_how_long = 30, $format='Y-m-d H:i:s'){
-        if(empty($timeInt)||!is_numeric($timeInt)||!$timeInt){
-            $timeInt = strtotime($timeInt);
-            if ($timeInt == false) {
-                return '';
-            }
-        }
-        $d=time()-$timeInt;
-        if($d<0){
-            return '';
-        } else {
-            if ($d<60) {
-                return $d.'秒前';
-            } else {
-                if($d<3600){
-                    return floor($d/60).'分钟前';
-                } else {
-                    if ($d<86400) {
-                        return floor($d/3600).'小时前';
-                    } else {
-                        if ($d<60*60*24*$show_how_long) {//显示多少天内
-                            return floor($d/86400).'天前';
-                        } else {
-                            return date($format,$timeInt);
-                        }
-                    }
+    function timeago( $ptime )
+    {
+        if(empty($ptime)||!is_numeric($ptime)||!$ptime){
+                $ptime = strtotime($ptime);
+                if ($ptime == false) {
+                    return '';
                 }
+            }
+        $etime = time() - $ptime;
+        if ($etime < 59) return '刚刚';
+        $interval = array (
+            12 * 30 * 24 * 60 * 60 => '年前 ('.date('Y-m-d', $ptime).')',
+            30 * 24 * 60 * 60 => '个月前 ('.date('Y-m-d', $ptime).')',
+            7 * 24 * 60 * 60 => '周前 ('.date('m-d', $ptime).')',
+            24 * 60 * 60 => '天前',
+            60 * 60 => '小时前',
+            60 => '分钟前',
+            1 => '秒前'
+        );
+        foreach ($interval as $secs => $str) {
+            $d = $etime / $secs;
+            if ($d >= 1) {
+                $r = floor($d);
+                return $r . $str;
             }
         }
     }
