@@ -101,7 +101,7 @@ if (!function_exists('getLocalDomain')) {
  * @return bool|string  成功返回相应数值 失败返回 空字符串
  */
 if (!function_exists('howLongFromPastToNow')) {
-    function timeago( $ptime )
+    function howLongFromPastToNow( $ptime )
     {
         if(empty($ptime)||!is_numeric($ptime)||!$ptime){
                 $ptime = strtotime($ptime);
