@@ -48,12 +48,12 @@ MAIL_BACKUP=1
 # smtp主机,SERVER[:PORT]
 MAIL_SMTP_HOST="smtp.gmail.com:587"
 # stmp账号密码
-MAIL_SMTP_USER="anzhengchao@gmail.com"
+MAIL_SMTP_USER="yboker1982@gmail.com"
 MAIL_SMTP_PASS="123456"
 # 发件人,如果使用QQ邮箱，发件人要与上面MAIL_SMTP_USER一样
-MAIL_SENDER="anzhengchao@gmail.com"
+MAIL_SENDER="yboker1982@gmail.com"
 # 收件人，多个请用空格分开
-MAIL_RECEVER="44294631@qq.com"
+MAIL_RECEVER="8236138@qq.com"
 # 抄送，多个请用空格分开
 MAIL_CC=""
 # 邮件主题
