@@ -16,7 +16,7 @@
 ---
 
 #### &nbsp;&nbsp;脚本
-1. [数据库备份 python脚本]('https://github.com/angusty/common/blob/master/shell/mysql_backup.py')
-2. [数据库备份 shell]('https://github.com/angusty/common/blob/master/shell/mysql_backup.sh')
+1. [数据库备份python脚本]('https://github.com/angusty/common/blob/master/shell/mysql_backup.py')
+2. [数据库备份shell]('https://github.com/angusty/common/blob/master/shell/mysql_backup.sh')
 
 ---
