@@ -13,4 +13,5 @@ $spl_fixed_array['2'] = 33;
 Register::set('splstack', $splstack);   #注册对象
 Register::set('splarray', $spl_fixed_array);
 
-print_r(Register::get('splarray'));  #获得对象
+$splarray = Register::get('splarray');  #获得对象
+print_r($splarray);
