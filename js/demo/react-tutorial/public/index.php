@@ -21,7 +21,8 @@
     <script type="text/jsx" src="./js/src/tutorial3.js"></script> -->
     <script type="text/jsx" src="./js/src/tutorial7.js"></script>
     <script type="text/jsx" src="./js/src/tutorial10.js"></script>
-    <script type="text/jsx" src="./js/src/tutorial9.js"></script>
-    <script type="text/jsx" src="./js/src/tutorial11.js"></script>
+    <script type="text/jsx" src="./js/src/tutorial15.js"></script>
+    <script type="text/jsx" src="./js/src/tutorial14.js"></script>
+    <!-- <script type="text/jsx" src="./js/src/tutorial11.js"></script> -->
 </body>
 </html>
