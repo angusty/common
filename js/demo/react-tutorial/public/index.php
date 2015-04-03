@@ -24,11 +24,14 @@
     <!-- <script type="text/jsx" src="./js/src/tutorial7.js"></script>
     <script type="text/jsx" src="./js/src/tutorial4.js"></script>
     <script type="text/jsx" src="./js/src/tutorial3.js"></script> -->
+    <!-- <script type="text/jsx" src="./js/src/tutorial7.js"></script>
+    <script type="text/jsx" src="./js/src/tutorial16.js"></script>
+    <script type="text/jsx" src="./js/src/tutorial10.js"></script> -->
+    <!-- <script type="text/jsx" src="./js/src/tutorial14.js"></script> -->
+    <!-- <script type="text/jsx" src="./js/src/tutorial11.js"></script> -->
     <script type="text/jsx" src="./js/src/tutorial7.js"></script>
     <script type="text/jsx" src="./js/src/tutorial10.js"></script>
-    <script type="text/jsx" src="./js/src/tutorial16.js"></script>
-    <script type="text/jsx" src="./js/src/tutorial14.js"></script>
-    <!-- <script type="text/jsx" src="./js/src/tutorial11.js"></script> -->
-
+    <script type="text/jsx" src="./js/src/tutorial18.js"></script>
+    <script type="text/jsx" src="./js/src/tutorial19.js"></script>
 </body>
 </html>
