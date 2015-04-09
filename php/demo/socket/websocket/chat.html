@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>标题</title>
+</head>
+<body>
+<script type="text/javascript">
+    var ws = new WebSocket("ws://localhost:8765");
+    ws.onopen = function(){
+        console.log("握手成功");
+    };
+    ws.onerror = function(){
+        console.log("error");
+    };
+    ws.send('hello world!');
+</script>
+
+</body>
+</html>
