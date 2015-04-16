@@ -129,3 +129,66 @@ if (!function_exists('howLongFromPastToNow')) {
         }
     }
 }
+
+/**
+ * 根据文件名后缀 返回相应的 mime
+ * @date    2015-04-16
+ * @author  yangbo
+ * @param   string  $file  文件名
+ * @param   mix  $allow_suffix  允许的文件名后缀  字符串形式以'|' 分割 或数组形式
+ * @return  array
+ */
+if (!function_exists('getVideoMimeTypeByFileSuffix')) {
+    function getVideoMimeTypeByFileSuffix($file, $allow_suffix='mp4|flv')
+    {
+        $return = ['status'=>0, 'file'=>$file];
+        $suffix = pathinfo($file, PATHINFO_EXTENSION);
+        $mapping = array(
+            'video/mp4' => array('mp4'),
+            'video/x-flv' => array('flv'),
+            'video/avi' => array('avi', 'divx'),
+            'video/mpeg' => array('mpeg', 'mp3'),
+            'video/ogg' => array('ogg'),
+            'video/webm' => array('webm'),
+            'video/quicktime' => array('qt', 'mov')
+        );
+        $mapping = array_flip_into_subarray($mapping);
+        if (!empty($allow_suffix)) {
+            if (!is_array($allow_suffix)) {
+                $allow_suffix = explode('|', $allow_suffix);
+            }
+            if (!in_array($suffix, $allow_suffix)) {
+                $return['msg'] = '不允许的后缀名';
+                return $return;
+            }
+        }
+
+        if (isset($mapping[$suffix])) {
+            $return['status'] = 1;
+            $return['type'] = $mapping[$suffix];
+        } else {
+            $return['msg'] = '不能播放的video格式';
+        }
+        return $return;
+    }
+
+}
+
+/**
+ * 数组 键值 交换 键对应的是个数组
+ * @date    2015-04-16
+ * @author  yangbo
+ * @param   array  $input  数组
+ * @return   交换 键值后的数组
+ */
+if (!function_exists('array_flip_into_subarray')) {
+    function array_flip_into_subarray($input){
+        $output = array();
+         foreach ($input as $key=>$values){
+             foreach ($values as $value){
+                 $output[$value] = $key;
+             }
+         }
+         return $output;
+     }
+}
