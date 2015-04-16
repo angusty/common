@@ -1,0 +1,66 @@
+{template "content","header"}
+<link rel="stylesheet" type="text/css" href="{YL_PATH}video-js/video-js.css">
+<div class="newsDea">
+    {if $allow_visitor==1}
+    {php $vflv=urldecode($_GET['flv'])}
+    {php $return=getVideoMimeTypeByFileSuffix($vflv)}
+    {if $return['status'] ===1}
+    {php $thumb_picture = thumb('/uploadfile/2015/0413/thumb_0_531_20150413013727247.jpg', 660, 0)}
+    <div>
+        <video id="leleniu_video" class="video-js vjs-default-skin vjs-big-play-centered"
+            controls preload="auto" width="660" height="440"
+            poster= "{$thumb_picture}"
+            >
+            <source src="{$return['file']}" type="{$return['type']}"/>
+            <p class="vjs-no-js">
+            为了更好的观看,请用支持html5的浏览器或支持flash的浏览器
+            <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
+        </video>
+    </div>
+    <br> <br>
+    {/if}
+    <div>
+        {$content}
+    </div>
+    <br> <br>
+    <div class="related" style="width:50px;">
+        <div class="list">
+            <ul class="thelist" style="height:150px;width:600px;overflow-x:hidden;overflow-y:auto" >
+                {php $list=0;}
+                {loop $flvurl $pic_k $r}
+                {php $list++;}
+                <li><a href="/index.php?m=content&c=index&a=show&catid={$catid}&id={$id}&flv={urlencode($r['url'])}" onclick="changeStream(0);">第{$list}集:{$r[alt]}</a></li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+    {/if}
+    <div>
+<script type="text/javascript" src="{YL_PATH}video-js/video-dev.js"></script>
+<script type="text/javascript">
+            videojs('leleniu_video',{
+            techOrder : ["html5","flash"],
+            children : {
+                bigPlayButton : true,
+                textTrackDisplay: false,
+                posterImage: true,
+                errorDisplay : false,
+                controlBar : {
+                    captionsButton : false,
+                    chaptersButton: false,
+                    subtitlesButton:false,
+                    liveDisplay:false,
+                    playbackRateMenuButton:false
+                }
+            }
+                },function() {
+                // this.on('loadeddata',function(){
+                //   console.log(this)
+                // })
+                // this.on('ended',function(){
+                // this.pause();
+                // //this.hide()
+                // })
+                });
+</script>
+{template "content","footer"}
