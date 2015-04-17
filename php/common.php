@@ -182,7 +182,8 @@ if (!function_exists('getVideoMimeTypeByFileSuffix')) {
  * @return   交换 键值后的数组
  */
 if (!function_exists('array_flip_into_subarray')) {
-    function array_flip_into_subarray($input){
+    function array_flip_into_subarray($input)
+    {
         $output = array();
          foreach ($input as $key=>$values){
              foreach ($values as $value){
