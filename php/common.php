@@ -192,3 +192,19 @@ if (!function_exists('array_flip_into_subarray')) {
          return $output;
      }
 }
+
+/**
+ * 字符串转数组   $string = "array(1,2)" 转成 $array = array(1,2);
+ * @date    2015-04-17
+ * @author  yangbo
+ * @param   string  $data  字符串
+ * @return  array 数组
+ */
+if (!function_exists('string2array')) {
+    function string2array($data)
+    {
+        if(empty($data)) return array();
+        @eval("\$array = $data;");
+        return $array;
+    }
+}
