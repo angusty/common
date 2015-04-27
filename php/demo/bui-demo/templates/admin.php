@@ -47,6 +47,10 @@
                     items: [
                         {id: 'mytest3', text: '显示当前ip', href: 'show_ip.php'},
                         {id: 'mytest4', text: '显示一个htmldemo', href: 'htmldemo.php'},
+                        {id: 'mytest5', text: '表单demo', href: 'form.php'},
+                        {id: 'mytest6', text: '表单分组', href: 'form_group.php'},
+                        {id: 'mytest7', text: '远程调用', href: 'remote.php'},
+                        {id: 'mytest8', text: '表单分组', href: 'form_group_two.php'}
 
                     ]
                 }]
