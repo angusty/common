@@ -23,7 +23,8 @@
         </div>
         <ul id="J_NavContent" class="dl-tab-conten"></ul>
         </div>
-        <script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script>
+        <!-- <script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script> -->
+        <script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
         <script type="text/javascript" src="../assets/js/bui-min.js"></script>
         <script type="text/javascript" src="../assets/js/config-min.js"></script>
         <script>
@@ -50,8 +51,16 @@
                         {id: 'mytest5', text: '表单demo', href: 'form.php'},
                         {id: 'mytest6', text: '表单分组', href: 'form_group.php'},
                         {id: 'mytest7', text: '远程调用', href: 'remote.php'},
-                        {id: 'mytest8', text: '表单分组', href: 'form_group_two.php'}
-
+                        {id: 'mytest8', text: '表单分组', href: 'form_group_two.php'},
+                        {id: 'mytest9', text: '表单分组3', href: 'form_group_three.php'},
+                        {id: 'mytest10', text: '表单分组4', href: 'form_group_four.php'},
+                        {id: 'mytest11', text: '表单联动', href: 'form_play.php'}
+                    ]
+                },
+                {
+                    text: '测试三',
+                    items:[
+                    {id: 'mytest3_1', text: '可编辑表格', href: 'table.php'}
                     ]
                 }]
             }];

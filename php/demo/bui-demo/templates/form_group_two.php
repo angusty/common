@@ -20,7 +20,7 @@
 </form> -->
 
 <form action="" method="post" id="form">
-    <div class="bui-form-group-select" id="city-group" data-type="name">
+    <div class="bui-form-group-select" id="citygroup" data-type="name">
           <label>省市联动：</label>
           <select class="input-small" name="province" value="1">
                 <option>请选择省</option>
@@ -30,38 +30,39 @@
     </div>
 </form>
 
-<script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script>
-<!-- <script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script> -->
+<!-- <script type="text/javascript" src="../assets/js/jquery-1.11.2.min.js"></script> -->
+<script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
 <script type="text/javascript" src="../assets/js/bui-min.js"></script>
 <script type="text/javascript" src="../assets/js/config-min.js"></script>
 <script type="text/javascript">
+
+    //没有成功
+    var store = new BUI.Data.TreeStore({
+        proxy: {
+            url: 'data.json',
+            dataType: 'json'
+        },
+        //数据映射
+        map: {
+            isleaf : 'leaf', //将数据中的isleaf字段映射成leaf字段
+            id : 'text',
+            value: 'text'
+        }
+    });
+
+    console.log(store);
+
+    new BUI.Form.Group.Select({
+        srcNode: '#citygroup',
+        store: store
+    });
+
     BUI.use('form', function(Form) {
         var form = new Form.Form({
             srcNode: '#form'
         });
         form.render();
     });
-
-    var store = new BUI.Data.TreeStore({
-    proxy: {
-        url: 'data.json',
-        dataType: 'json'
-    }
-    // url : 'data.json',
-    // dataType: 'json'
-    ,
-    //数据映射
-    map: {
-        isleaf : 'leaf', //将数据中的isleaf字段映射成leaf字段
-        id : 'text'
-    }
-    });
-    console.log(store);
-    new BUI.Form.Group.Select({
-        srcNode: '#city-group',
-        store: store
-    });
-
 </script>
 </body>
 </html>
