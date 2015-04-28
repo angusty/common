@@ -10,9 +10,12 @@
 </head>
 <body>
 
-    <div id="grid">
+    <form id="J_Form">
+        <div id="grid">
+        </div>
+        <button id="btnSave" class="button button-primary">提交</button>
+    </form>
 
-    </div>
 
     <script type="text/javascript" src="../assets/js/jquery-1.8.1.min.js"></script>
     <script type="text/javascript" src="../assets/js/bui-min.js"></script>
@@ -67,35 +70,50 @@
                     }]
                 }
             });
-
+            //var operator = '';
             grid.render();
-            console.log(store);
+            var store_add = new Data.Store();
             function addFunction(){
-                var newData = {school :'请输入学校名称'};
+                var newData = {school:'默认学校'};
                 store.add(newData);
-                editing.edit(newData,'school'); //添加记录后，直接编辑
+                store_add.add(newData);
+                //operator = 'add';
+                //editing.edit(newData,'school'); //添加记录后，直接编辑
             }
 
             function delFunction() {
                 var selections = grid.getSelection();
                 store.remove(selections);
+                // operator = 'delete';
             }
+            var form = new Form.HForm({
+                srcNode: '#J_Form'
+            });
+            form.render();
 
+            //更新选项时触发
+            grid.on('itemupdated', function (ev) {
+                //var sender = $(ev.domTarget);
+                console.log(ev.item);
+            });
+
+            //添加逻辑
+            $('#btnSave').on('click', function() {
+                if (editing.isValid()) {
+                    //var result =newData;
+                     // var result = store_add.getResult();
+                     // result = BUI.JSON.stringify(result);
+                    // console.log(result);
+                    //var result = grid.getSelection();
+                    // BUI.Message.Alert('ok');
+                    var result = store_add.getResult();
+                    result = BUI.JSON.stringify(result);
+                    console.log(result);
+                }
+
+            });
         });
 
-        // var columns = [
-        //     //文本编辑器，必填
-        //     {title : '学校名称',dataIndex :'school',editor : {xtype : 'text',rules:{required:true}}},
-        //     //日期编辑器
-        //     {title : '入学日期',dataIndex :'enter',editor : {xtype : 'date'},renderer : Grid.Format.dateRenderer},//使用现有的渲染函数，日期格式化
-        //     //日期编辑器，自定义验证函数
-        //     {title : '毕业日期',dataIndex :'outter',editor : {xtype : 'date',validator : function(value,obj){
-        //     if(obj.enter && value && obj.enter > value){
-        //       return '毕业日期不能晚于入学日期！'
-        //     }
-        //     }},renderer : Grid.Format.dateRenderer},
-        //     {title : '备注',dataIndex :'memo',width:200,editor : {xtype : 'text'}}
-        // ];
     </script>
 
 
