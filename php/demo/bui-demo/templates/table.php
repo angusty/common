@@ -53,7 +53,7 @@
                 forceFit: true,
                 store: store,
                 plugins: [Grid.Plugins.CheckSelection, editing],
-                tbar: {
+                tbar: {   //顶层工具栏
                     items: [{
                         btnCls: 'button button-small',
                         text: '<li class="icon-plus" ></li>添加',
@@ -86,15 +86,16 @@
                 store.remove(selections);
                 // operator = 'delete';
             }
-            var form = new Form.HForm({
-                srcNode: '#J_Form'
-            });
-            form.render();
+            // var form = new Form.HForm({
+            //     srcNode: '#J_Form'
+            // });
+            // form.render();
 
-            //更新选项时触发
+            //更新选项时触发  修改
             grid.on('itemupdated', function (ev) {
                 //var sender = $(ev.domTarget);
-                console.log(ev.item);
+                var item = BUI.JSON.stringify(ev.item);
+                console.log(item);
             });
 
             //添加逻辑

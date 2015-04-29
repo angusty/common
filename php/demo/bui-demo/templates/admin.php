@@ -60,7 +60,14 @@
                 {
                     text: '测试三',
                     items:[
-                    {id: 'mytest3_1', text: '可编辑表格', href: 'table.php'}
+                    {id: 'mytest3_1', text: '可编辑表格', href: 'table.php'},
+                    {id: 'mytest3_2', text: '弹出框表格', href: 'tableDialog.php'}
+                    ]
+                },
+                {
+                    text: '搜索测试',
+                    items:[
+                    {id: 'mytest3_3', text: '搜索', href: 'search.php'}
                     ]
                 }]
             }];
