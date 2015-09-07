@@ -4,6 +4,10 @@
         "phpunit/phpunit": "^4.8"
     },
     "autoload": {
-        "psr-4": {"": "./AbstractFactory"}
+        "psr-4": {
+            "": "./AbstractFactory",
+            "": "./Builder"
+
+        }
     }
 }
