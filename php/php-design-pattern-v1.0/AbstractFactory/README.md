@@ -1,0 +1,1 @@
+#### [抽象工厂模式](http://designpatternsphp.readthedocs.org/en/latest/Creational/AbstractFactory/README.html)
