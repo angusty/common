@@ -15,5 +15,4 @@ class Text extends BaseText
         // TODO: Implement render() method.
         return '<div>' . htmlspecialchars($this->text) . '</div>';
     }
-
 }

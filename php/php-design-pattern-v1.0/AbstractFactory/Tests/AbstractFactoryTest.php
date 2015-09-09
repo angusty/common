@@ -7,13 +7,13 @@ use Contracts\AbstractFactory;
 
 class AbstractFactoryTest extends \PHPUnit_Framework_TestCase
 {
-   public function getFactories()
-   {
+    public function getFactories()
+    {
         return array(
             array(new JsonFactory()),
             array(new HtmlFactory())
         );
-   }
+    }
 
     /**
      *  @dataProvider getFactories

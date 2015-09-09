@@ -38,5 +38,4 @@ class BikeBuilder implements BuilderInterface
         // TODO: Implement getVehicle() method.
         return $this->bike;
     }
-
 }

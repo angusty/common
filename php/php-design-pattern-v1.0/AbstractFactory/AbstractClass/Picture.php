@@ -9,7 +9,7 @@ abstract class Picture implements MediaInterface
 
     protected $name;
 
-    public function __construct($path, $name='')
+    public function __construct($path, $name = '')
     {
         $this->name = (string) $name;
         $this->path = (string) $path;

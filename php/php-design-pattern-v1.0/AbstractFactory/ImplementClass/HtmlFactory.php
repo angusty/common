@@ -33,5 +33,4 @@ class HtmlFactory implements AbstractFactory
         // TODO: Implement createPicture() method.
         return new Picture($path, $name);
     }
-
 }

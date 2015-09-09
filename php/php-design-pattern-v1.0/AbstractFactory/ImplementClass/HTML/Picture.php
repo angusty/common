@@ -15,5 +15,4 @@ class Picture extends BasePicture
         // TODO: Implement render() method.
         return sprintf('<img src="%s" title="%s" />', $this->path, $this->name);
     }
-
 }
