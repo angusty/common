@@ -1,0 +1,1 @@
+#### [对象池](http://designpatternsphp.readthedocs.org/en/latest/Creational/Pool/README.html)
