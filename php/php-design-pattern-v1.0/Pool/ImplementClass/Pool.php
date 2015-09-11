@@ -3,7 +3,7 @@ namespace ImplementClass;
 
 class Pool
 {
-    private $instances = array();
+    public $instances = array();
     private $class;
 
     public function __construct($class)

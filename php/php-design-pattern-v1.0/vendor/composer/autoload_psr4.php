@@ -9,5 +9,5 @@ return array(
     'Symfony\\Component\\Yaml\\' => array($vendorDir . '/symfony/yaml'),
     'Symfony\\Component\\Finder\\' => array($vendorDir . '/symfony/finder'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
-    '' => array($baseDir . '/Pool'),
+    '' => array($baseDir . '/Prototype'),
 );
