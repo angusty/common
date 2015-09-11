@@ -8,8 +8,8 @@ class Worker
 
     }
 
-    public function run($image, $callback)
+    public function run($image, array $callback)
     {
-
+        call_user_func($callback, $this);
     }
 }
