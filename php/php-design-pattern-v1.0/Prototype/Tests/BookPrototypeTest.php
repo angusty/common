@@ -23,6 +23,9 @@ class BookPrototypeTest extends \PHPUnit_Framework_TestCase
      */
     public function testCloneComponent(BookPrototype $book)
     {
-
+        $books = array(
+            clone $book
+        );
+        $this->assertContainsOnly('AbstractClass\BookPrototype', $books);
     }
 }
