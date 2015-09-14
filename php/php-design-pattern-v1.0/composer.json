@@ -10,7 +10,8 @@
             "FactoryMethod\\": "./FactoryMethod",
             "Pool\\": "./Pool",
             "Prototype\\": "./Prototype",
-            "SimpleFactory\\": "./SimpleFactory"
+            "SimpleFactory\\": "./SimpleFactory",
+            "Singleton\\": "./Singleton"
         }
     }
 }
