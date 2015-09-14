@@ -1,5 +1,5 @@
 <?php
-namespace ImplementClass;
+namespace Pool\ImplementClass;
 
 class Pool
 {

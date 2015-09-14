@@ -1,5 +1,5 @@
 <?php
-namespace Contracts;
+namespace Builder\Contracts;
 
 interface BuilderInterface
 {

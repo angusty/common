@@ -1,9 +1,9 @@
 <?php
-namespace ImplementClass;
+namespace AbstractFactory\ImplementClass;
 
-use Contracts\AbstractFactory;
-use ImplementClass\HTML\Text;
-use ImplementClass\HTML\Picture;
+use AbstractFactory\Contracts\AbstractFactory;
+use AbstractFactory\ImplementClass\HTML\Text;
+use AbstractFactory\ImplementClass\HTML\Picture;
 
 class HtmlFactory implements AbstractFactory
 {

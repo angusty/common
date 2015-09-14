@@ -1,5 +1,5 @@
 <?php
-namespace AbstractClass;
+namespace Prototype\AbstractClass;
 
 abstract class BookPrototype
 {

@@ -1,9 +1,9 @@
 <?php
-namespace Tests;
+namespace Prototype\Tests;
 
-use AbstractClass\BookPrototype;
-use ImplementClass\BarBookPrototype;
-use ImplementClass\FooBookPrototype;
+use Prototype\AbstractClass\BookPrototype;
+use Prototype\ImplementClass\BarBookPrototype;
+use Prototype\ImplementClass\FooBookPrototype;
 
 class BookPrototypeTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,6 +26,6 @@ class BookPrototypeTest extends \PHPUnit_Framework_TestCase
         $books = array(
             clone $book
         );
-        $this->assertContainsOnly('AbstractClass\BookPrototype', $books);
+        $this->assertContainsOnly('Prototype\AbstractClass\BookPrototype', $books);
     }
 }

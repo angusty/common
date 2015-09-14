@@ -1,5 +1,5 @@
 <?php
-namespace Contracts;
+namespace FactoryMethod\Contracts;
 
 interface VehicleInterface
 {

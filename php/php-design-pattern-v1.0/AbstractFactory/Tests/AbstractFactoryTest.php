@@ -1,9 +1,9 @@
 <?php
-namespace Tests;
+namespace AbstractFactory\Tests;
 
-use ImplementClass\HtmlFactory;
-use ImplementClass\JsonFactory;
-use Contracts\AbstractFactory;
+use AbstractFactory\ImplementClass\HtmlFactory;
+use AbstractFactory\ImplementClass\JsonFactory;
+use AbstractFactory\Contracts\AbstractFactory;
 
 class AbstractFactoryTest extends \PHPUnit_Framework_TestCase
 {
@@ -26,6 +26,6 @@ class AbstractFactoryTest extends \PHPUnit_Framework_TestCase
             $factory->createPicture($img_url, '苹果的logo!!'),
             $factory->createText('foot this text!!!')
         );
-        $this->assertContainsOnly('Contracts\MediaInterface', $article);
+        $this->assertContainsOnly('AbstractFactory\Contracts\MediaInterface', $article);
     }
 }

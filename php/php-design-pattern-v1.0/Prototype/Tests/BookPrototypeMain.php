@@ -1,8 +1,8 @@
 <?php
-namespace Tests;
+namespace Prototype\Tests;
 
-use ImplementClass\BarBookPrototype;
-use ImplementClass\FooBookPrototype;
+use Prototype\ImplementClass\BarBookPrototype;
+use Prototype\ImplementClass\FooBookPrototype;
 
 class BookPrototypeMain
 {

@@ -1,0 +1,1 @@
+#### [简单工厂](http://designpatternsphp.readthedocs.org/en/latest/Creational/SimpleFactory/README.html)

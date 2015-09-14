@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace Builder\ImplementClass;
 
-use Contracts\BuilderInterface;
+use Builder\Contracts\BuilderInterface;
 
 class BikeBuilder implements BuilderInterface
 {

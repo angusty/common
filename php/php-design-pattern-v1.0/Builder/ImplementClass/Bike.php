@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace Builder\ImplementClass;
 
-use AbstractClass\Vehicle;
+use Builder\AbstractClass\Vehicle;
 
 class Bike extends Vehicle
 {

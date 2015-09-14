@@ -1,5 +1,5 @@
 <?php
-namespace AbstractClass;
+namespace Builder\AbstractClass;
 
 abstract class Vehicle
 {

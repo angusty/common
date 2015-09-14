@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace FactoryMethod\ImplementClass;
 
-use AbstractClass\FactoryMethod;
+use FactoryMethod\AbstractClass\FactoryMethod;
 
 class GermanFactory extends FactoryMethod
 {

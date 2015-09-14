@@ -1,11 +1,11 @@
 <?php
-namespace Tests;
-use ImplementClass\HtmlFactory;
-use ImplementClass\JsonFactory;
+namespace AbstractFactory\Tests;
+use AbstractFactory\ImplementClass\HtmlFactory;
+use AbstractFactory\ImplementClass\JsonFactory;
 
 class AbstractFactoryMain
 {
-    public function index()
+    public static function index()
     {
         $htmlfactory = new HtmlFactory();
         $img_url = 'http://cms.csdnimg.cn/article/201404/29/535f579acd116.jpg';
@@ -30,5 +30,4 @@ class AbstractFactoryMain
 
 $root_dir = dirname(dirname(__DIR__));
 require_once $root_dir . '/vendor/autoload.php';
-$main = new AbstractFactoryMain();
-$main->index();
+AbstractFactoryMain::index();

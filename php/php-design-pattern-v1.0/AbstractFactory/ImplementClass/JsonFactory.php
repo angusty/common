@@ -1,9 +1,9 @@
 <?php
-namespace ImplementClass;
+namespace AbstractFactory\ImplementClass;
 
-use Contracts\AbstractFactory;
-use ImplementClass\JSON\Text;
-use ImplementClass\JSON\Picture;
+use AbstractFactory\Contracts\AbstractFactory;
+use AbstractFactory\ImplementClass\JSON\Text;
+use AbstractFactory\ImplementClass\JSON\Picture;
 
 class JsonFactory implements AbstractFactory
 {

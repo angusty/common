@@ -5,11 +5,12 @@
     },
     "autoload": {
         "psr-4": {
-            "": "./AbstractFactory",
-            "": "./Builder",
-            "": "./FactoryMethod",
-            "": "./Pool",
-            "": "./Prototype"
+            "AbstractFactory\\": "./AbstractFactory",
+            "Builder\\": "./Builder",
+            "FactoryMethod\\": "./FactoryMethod",
+            "Pool\\": "./Pool",
+            "Prototype\\": "./Prototype",
+            "SimpleFactory\\": "./SimpleFactory"
         }
     }
 }

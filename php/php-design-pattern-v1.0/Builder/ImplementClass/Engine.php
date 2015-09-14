@@ -1,5 +1,5 @@
 <?php
-namespace ImplementClass;
+namespace Builder\ImplementClass;
 
 class Engine
 {

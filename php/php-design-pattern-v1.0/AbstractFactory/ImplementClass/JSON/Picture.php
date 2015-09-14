@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass\JSON;
+namespace AbstractFactory\ImplementClass\JSON;
 
-use AbstractClass\Picture as BasePicture;
+use AbstractFactory\AbstractClass\Picture as BasePicture;
 
 class Picture extends BasePicture
 {

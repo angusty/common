@@ -1,12 +1,13 @@
 <?php
-namespace Tests;
-use ImplementClass\Pool;
+namespace Pool\Tests;
+
+use Pool\ImplementClass\Pool;
 
 class PoolTest extends \PHPUnit_Framework_TestCase
 {
     public function testPool()
     {
-        $pool = new Pool('Tests\TestWorker');
+        $pool = new Pool('Pool\Tests\TestWorker');
         $worker = $pool->get();
 
         $this->assertEquals(1, $worker->id);

@@ -1,13 +1,13 @@
 <?php
-namespace Tests;
+namespace Builder\Tests;
 
-use ImplementClass\BikeBuilder;
-use ImplementClass\CarBuilder;
-use ImplementClass\Director;
+use Builder\ImplementClass\BikeBuilder;
+use Builder\ImplementClass\CarBuilder;
+use Builder\ImplementClass\Director;
 
 class BuilderMain
 {
-    public function index()
+    public static function index()
     {
         $director = new Director();
         $builder = new BikeBuilder();
@@ -22,6 +22,4 @@ class BuilderMain
 
 $root_dir = dirname(dirname(__DIR__));
 require_once $root_dir . '/vendor/autoload.php';
-
-$buildermain = new BuilderMain();
-$buildermain->index();
+BuilderMain::index();

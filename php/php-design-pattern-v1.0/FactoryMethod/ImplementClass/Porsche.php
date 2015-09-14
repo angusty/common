@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace FactoryMethod\ImplementClass;
 
-use Contracts\VehicleInterface;
+use FactoryMethod\Contracts\VehicleInterface;
 
 class Porsche implements VehicleInterface
 {

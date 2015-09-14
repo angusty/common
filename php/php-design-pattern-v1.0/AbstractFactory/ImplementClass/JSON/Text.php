@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass\JSON;
+namespace AbstractFactory\ImplementClass\JSON;
 
-use AbstractClass\Text as BaseText;
+use AbstractFactory\AbstractClass\Text as BaseText;
 
 class Text extends BaseText
 {

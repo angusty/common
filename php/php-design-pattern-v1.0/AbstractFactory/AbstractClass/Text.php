@@ -1,7 +1,7 @@
 <?php
-namespace AbstractClass;
+namespace AbstractFactory\AbstractClass;
 
-use Contracts\MediaInterface;
+use AbstractFactory\Contracts\MediaInterface;
 
 abstract class Text implements MediaInterface
 {

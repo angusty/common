@@ -1,13 +1,13 @@
 <?php
-namespace Tests;
+namespace Pool\Tests;
 
-use ImplementClass\Pool;
+use Pool\ImplementClass\Pool;
 
 class PoolMain
 {
     public static function index()
     {
-        $pool = new Pool('Tests\MyTest');
+        $pool = new Pool('Pool\Tests\MyTest');
         $obj = $pool->get();
 //        var_dump($obj);
         $obj->test = 'new1';

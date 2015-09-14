@@ -1,10 +1,10 @@
 <?php
-namespace Tests;
+namespace Builder\Tests;
 
-use Contracts\BuilderInterface;
-use ImplementClass\BikeBuilder;
-use ImplementClass\CarBuilder;
-use ImplementClass\Director;
+use Builder\Contracts\BuilderInterface;
+use Builder\ImplementClass\BikeBuilder;
+use Builder\ImplementClass\CarBuilder;
+use Builder\ImplementClass\Director;
 
 class DirectorTest extends \PHPUnit_Framework_TestCase
 {
@@ -31,6 +31,6 @@ class DirectorTest extends \PHPUnit_Framework_TestCase
     public function testBuilder(BuilderInterface $builder)
     {
         $newVehicle = $this->director->builder($builder);
-        $this->assertInstanceOf('AbstractClass\Vehicle', $newVehicle);
+        $this->assertInstanceOf('Builder\AbstractClass\Vehicle', $newVehicle);
     }
 }

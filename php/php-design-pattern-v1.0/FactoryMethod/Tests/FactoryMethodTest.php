@@ -1,9 +1,9 @@
 <?php
-namespace Tests;
+namespace FactoryMethod\Tests;
 
-use AbstractClass\FactoryMethod;
-use ImplementClass\GermanFactory;
-use ImplementClass\ItalianFactory;
+use FactoryMethod\AbstractClass\FactoryMethod;
+use FactoryMethod\ImplementClass\GermanFactory;
+use FactoryMethod\ImplementClass\ItalianFactory;
 
 class FactoryMethodTest extends \PHPUnit_Framework_TestCase
 {
@@ -28,7 +28,7 @@ class FactoryMethodTest extends \PHPUnit_Framework_TestCase
     {
         foreach ($this->type as $type) {
             $vehicle = $shop->create($type);
-            $this->assertInstanceOf('Contracts\VehicleInterface', $vehicle);
+            $this->assertInstanceOf('FactoryMethod\Contracts\VehicleInterface', $vehicle);
         }
     }
 
@@ -62,6 +62,6 @@ class FactoryMethodTest extends \PHPUnit_Framework_TestCase
             $factory->create(1),
             $factory->create(2)
         );
-        $this->assertContainsOnly('Contracts\VehicleInterface', $vehicles);
+        $this->assertContainsOnly('FactoryMethod\Contracts\VehicleInterface', $vehicles);
     }
 }

@@ -1,7 +1,7 @@
 <?php
-namespace AbstractClass;
+namespace FactoryMethod\AbstractClass;
 
-use Contracts\VehicleInterface;
+use FactoryMethod\Contracts\VehicleInterface;
 
 abstract class FactoryMethod
 {

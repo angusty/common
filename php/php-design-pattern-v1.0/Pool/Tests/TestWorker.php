@@ -1,5 +1,5 @@
 <?php
-namespace Tests;
+namespace Pool\Tests;
 
 class TestWorker
 {

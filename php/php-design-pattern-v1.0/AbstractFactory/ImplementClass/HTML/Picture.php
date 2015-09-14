@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass\HTML;
+namespace AbstractFactory\ImplementClass\HTML;
 
-use AbstractClass\Picture as BasePicture;
+use AbstractFactory\AbstractClass\Picture as BasePicture;
 
 class Picture extends BasePicture
 {

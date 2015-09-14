@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace Prototype\ImplementClass;
 
-use AbstractClass\BookPrototype;
+use Prototype\AbstractClass\BookPrototype;
 
 class FooBookPrototype extends BookPrototype
 {

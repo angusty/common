@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass\HTML;
+namespace AbstractFactory\ImplementClass\HTML;
 
-use AbstractClass\Text as BaseText;
+use AbstractFactory\AbstractClass\Text as BaseText;
 
 class Text extends BaseText
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Contracts;
+namespace AbstractFactory\Contracts;
 
 interface AbstractFactory
 {

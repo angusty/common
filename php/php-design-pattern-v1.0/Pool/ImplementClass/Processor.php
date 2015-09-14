@@ -1,7 +1,7 @@
 <?php
-namespace ImplementClass;
+namespace Pool\ImplementClass;
 
-use ImplementClass\Pool;
+use Pool\ImplementClass\Pool;
 
 class Processor
 {
