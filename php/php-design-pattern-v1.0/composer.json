@@ -11,7 +11,8 @@
             "Pool\\": "./Pool",
             "Prototype\\": "./Prototype",
             "SimpleFactory\\": "./SimpleFactory",
-            "Singleton\\": "./Singleton"
+            "Singleton\\": "./Singleton",
+            "StaticFactory\\": "./StaticFactory"
         }
     }
 }
