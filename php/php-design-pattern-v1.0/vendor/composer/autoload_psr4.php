@@ -15,6 +15,7 @@ return array(
     'Pool\\' => array($baseDir . '/Pool'),
     'FactoryMethod\\' => array($baseDir . '/FactoryMethod'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
+    'DependencyInjection\\' => array($baseDir . '/DependencyInjection'),
     'Builder\\' => array($baseDir . '/Builder'),
     'AbstractFactory\\' => array($baseDir . '/AbstractFactory'),
 );

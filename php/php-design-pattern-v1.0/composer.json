@@ -12,7 +12,8 @@
             "Prototype\\": "./Prototype",
             "SimpleFactory\\": "./SimpleFactory",
             "Singleton\\": "./Singleton",
-            "StaticFactory\\": "./StaticFactory"
+            "StaticFactory\\": "./StaticFactory",
+            "DependencyInjection\\": "./DependencyInjection"
         }
     }
 }
