@@ -13,7 +13,8 @@
             "SimpleFactory\\": "./SimpleFactory",
             "Singleton\\": "./Singleton",
             "StaticFactory\\": "./StaticFactory",
-            "DependencyInjection\\": "./DependencyInjection"
+            "DependencyInjection\\": "./DependencyInjection",
+            "Adapter\\": "./Adapter"
         }
     }
 }

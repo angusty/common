@@ -17,5 +17,6 @@ return array(
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DependencyInjection\\' => array($baseDir . '/DependencyInjection'),
     'Builder\\' => array($baseDir . '/Builder'),
+    'Adapter\\' => array($baseDir . '/Adapter'),
     'AbstractFactory\\' => array($baseDir . '/AbstractFactory'),
 );
