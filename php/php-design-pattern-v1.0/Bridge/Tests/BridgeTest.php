@@ -26,8 +26,5 @@ class BridgeTest extends \PHPUnit_Framework_TestCase
         $car = new Car($workshop1, $workshop2);
         $car->manufacture();
         $this->expectOutputString('Bridge\\ImplementClass\\Car<br>Bridge\\ImplementClass\\Assemble<br>Bridge\\ImplementClass\\Produce<br>');
-        $motorcycle = new Motorcycle($workshop1, $workshop2);
-        $motorcycle->manufacture();
-
     }
 }
