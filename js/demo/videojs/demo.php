@@ -22,7 +22,7 @@
           poster= "http://video-js.zencoder.com/oceans-clip.png"
           >
          <!-- <source src="http://video-js.zencoder.com/oceans-clip.mp4" type='video/mp4' /> -->
-         <source src="http://yldf.yiweimi.cn//uploadfile/2015/0414/20150414045821265.flv" type='video/x-flv'/>
+         <source src="http://www.elitefun.com/uploadfile/2015/0416/20150416040204558.flv" type='video/x-flv'/>
          <p class="vjs-no-js">To view this video please enable JavaScript, and consider upgrading to a web browser that <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a></p>
         </video>
     </div>
