@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./../public/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./../public/plugin/nice-validator/jquery.validator.css">
+    <link rel="stylesheet" href="./../public/plugin/art-dialog/ui-dialog.css">
+</head>
+<body>
+<div class="container">
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <form method="post" action="demo.php">
+        <div class="form-group">
+            <label for="telephone">手机号</label>
+            <input type="tel" class="form-control" id="telephone" name="telephone" placeholder="手机号" >
+            <span class="yes"  for="telephone"></span>
+        </div>
+        <div class="form-group">
+            <label for="password">密码</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="密码">
+            <span class="msg-box n-right"   for="password"></span>
+        </div>
+        <div class="form-group">
+            <label for="repassword">确认密码</label>
+            <input type="password" class="form-control" id="repassword" name="repassword" placeholder="确认密码">
+            <span class="msg-box n-right"  for="repassword"></span>
+        </div>
+
+        <div class="form-group">
+            <label for="">性别</label>：
+            <label>
+                <input type="radio" name="sex" id="optionsRadios1" value="1" checked>
+                男
+            </label>
+
+            <label>
+                <input type="radio" name="sex" id="optionsRadios2" value="2">
+                女
+            </label>
+            <span class="msg-box n-right"  for="sex"></span>
+        </div>
+
+
+        <button type="submit" class="btn btn-default">提交</button>
+    </form>
+</div>
+
+<script src="./../public/js/jquery-1.11.3.js"></script>
+<script src="./../public/plugin/nice-validator/jquery.validator.js"></script>
+<script src="./../public/plugin/nice-validator/local/zh-CN.js"></script>
+<script src="./../public/plugin/art-dialog/dialog.js"></script>
+<script>
+    $('form').validator({
+        focusCleanup: false,
+        stopOnError:false,
+        timely: 0,
+        fields: {
+            "telephone": {
+                rule: "电话号码: required;mobile",
+                tip: "请输入你的电话号码",
+                ok: "ok",
+                target: ".yes"   // 指定错误显示位置
+            },
+            "password": {
+                rule: "密码: required;length[6~16]",
+                tip: "密码",
+                ok: "很棒"
+            },
+            "repassword": {
+                rule: "确认密码: match[password]",
+                tip: "确认密码",
+                msg: {
+                    match: "两次密码不一致"
+                }
+            },
+            "sex": {
+                rule: "required",
+                tip: "选择性别",
+                ok: "不错"
+            }
+        },
+        msgMaker: false,
+        msgMaker: function(opt){
+            var input = opt.element,
+                type = opt.type,
+                msg = opt.msg;
+            if (type == 'error') {
+                var d = dialog({
+                    align: 'top left',
+                    content: msg,
+                    quickClose: true
+                });
+                d.show(input);
+                return d;
+            }
+
+        },
+        invalid: function(form, errors) {
+//            console.log(form);
+//            console.log(errors);
+        }
+    });
+</script>
+</body>
+</html>
