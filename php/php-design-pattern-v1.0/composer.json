@@ -15,7 +15,8 @@
             "StaticFactory\\": "./StaticFactory",
             "DependencyInjection\\": "./DependencyInjection",
             "Adapter\\": "./Adapter",
-            "Bridge\\": "./Bridge"
+            "Bridge\\": "./Bridge",
+            "Composite\\": "./Composite"
         }
     }
 }
