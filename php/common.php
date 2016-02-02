@@ -27,9 +27,8 @@ if (!function_exists('file_get_contents_chunked')) {
                 $i++;
             }
             fclose($handle);
-        }
-        catch(Exception $e) {
-            trigger_error("file_get_contents_chunked::" . $e->getMessage() , E_USER_NOTICE);
+        } catch (Exception $e) {
+            trigger_error("file_get_contents_chunked::" . $e->getMessage(), E_USER_NOTICE);
             return false;
         }
         return true;
@@ -38,7 +37,6 @@ if (!function_exists('file_get_contents_chunked')) {
 
 /**
  * 返回当前页面上一级URL地址函数，此函数依赖getLocalDomain()函数
- * @author  yangbo
  * @date    2015-01-15
  * @param   string  $default_url  默认url
  * @param   array|null  $exclude  排除url，当url中包含有$exclude则跳到默认的url，而不会返回到该url
@@ -48,8 +46,7 @@ if (!function_exists('getRefererUrl')) {
     function getRefererUrl($default_url, array $exclude = null)
     {
         $local_domain = getLocalDomain();
-        $last_url = $_SERVER['HTTP_REFERER'];;
-        //echo $last_url;
+        $last_url = $_SERVER['HTTP_REFERER'];
         if (empty($last_url)) {
              //如果过来的url为空 给个默认值
             $last_url = $default_url;
@@ -78,7 +75,6 @@ if (!function_exists('getRefererUrl')) {
 
 /**
  * 获得当前一级域名 baidu.com形式非 www.baidu.com形式
- * @author  yangbo
  * @date    2015-01-15
  * @return  domian 域名
  */
@@ -103,14 +99,16 @@ if (!function_exists('getLocalDomain')) {
 if (!function_exists('howLongFromPastToNow')) {
     function howLongFromPastToNow($ptime)
     {
-        if(empty($ptime)||!is_numeric($ptime)||!$ptime) {
-                $ptime = strtotime($ptime);
-                if ($ptime == false) {
-                    return '';
-                }
+        if (empty($ptime) || !is_numeric($ptime) || !$ptime) {
+            $ptime = strtotime($ptime);
+            if ($ptime == false) {
+                return '';
             }
+        }
         $etime = time() - $ptime;
-        if ($etime < 59) return '刚刚';
+        if ($etime < 59) {
+            return '刚刚';
+        }
         $interval = array (
             12 * 30 * 24 * 60 * 60 => '年前 ('.date('Y-m-d', $ptime).')',
             30 * 24 * 60 * 60 => '个月前 ('.date('Y-m-d', $ptime).')',
@@ -133,13 +131,12 @@ if (!function_exists('howLongFromPastToNow')) {
 /**
  * 根据文件名后缀 返回相应的 mime
  * @date    2015-04-16
- * @author  yangbo
  * @param   string  $file  文件名
  * @param   mix  $allow_suffix  允许的文件名后缀  字符串形式以'|' 分割 或数组形式
  * @return  array
  */
 if (!function_exists('getVideoMimeTypeByFileSuffix')) {
-    function getVideoMimeTypeByFileSuffix($file, $allow_suffix='mp4|flv')
+    function getVideoMimeTypeByFileSuffix($file, $allow_suffix = 'mp4|flv')
     {
         $return = ['status'=>0, 'file'=>$file];
         $suffix = pathinfo($file, PATHINFO_EXTENSION);
@@ -177,7 +174,6 @@ if (!function_exists('getVideoMimeTypeByFileSuffix')) {
 /**
  * 数组 键值 交换 键对应的是个数组
  * @date    2015-04-16
- * @author  yangbo
  * @param   array  $input  数组
  * @return   交换 键值后的数组
  */
@@ -185,27 +181,96 @@ if (!function_exists('array_flip_into_subarray')) {
     function array_flip_into_subarray($input)
     {
         $output = array();
-         foreach ($input as $key=>$values){
-             foreach ($values as $value){
-                 $output[$value] = $key;
-             }
-         }
+        foreach ($input as $key => $values) {
+            foreach ($values as $value) {
+                $output[$value] = $key;
+            }
+        }
          return $output;
-     }
+    }
 }
 
 /**
  * 字符串转数组   $string = "array(1,2)" 转成 $array = array(1,2);
  * @date    2015-04-17
- * @author  yangbo
  * @param   string  $data  字符串
  * @return  array 数组
  */
 if (!function_exists('string2array')) {
     function string2array($data)
     {
-        if(empty($data)) return array();
+        if (empty($data)) {
+            return array();
+        }
         @eval("\$array = $data;");
         return $array;
     }
+}
+
+/**
+ * 按照 RFC 3986 对 URL 进行编码 其中一个场景是当进行file_get_contents的时候 如果url有空格会报错
+ * @param $url 要编码的url
+ * @return string 编码后的url
+ */
+function file_url($url)
+{
+    $parts = parse_url($url);
+    $path_parts = array_map('rawurldecode', explode('/', $parts['path']));
+    return
+        $parts['scheme'] . '://' .
+        $parts['host'] . ':' .
+        $parts['port'] .
+        implode('/', array_map('rawurlencode', $path_parts))
+        ;
+}
+
+/**
+ * 获取当前页面的host和完整url
+ * @return array [host => '当前域名带http://或https://', current_url => 当前url]
+ * 使用场景： 当需要根据当前url生成二维码可使用current_url 或者下一个跳转页面和当前主域名相同可使用host
+ */
+function getCurrentUrl()
+{
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] === 443) ? 'https://' : 'http://';
+    if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+        $host = $_SERVER['HTTP_X_FORWARDED_HOST'];
+    } else {
+        $host = $_SERVER['HTTP_HOST'];
+    }
+    $request_url = $_SERVER['REQUEST_URI'];
+    return [
+        'host'  => $protocol . $host,
+        'current_url' => $protocol . $host . $request_url
+    ];
+}
+
+/**
+ * 通过指定的$keys返回数组$array中相应的key存在的新数组
+ * @param array $array 要处理的数组
+ * @param array $keys 需要的键值数组
+ * @return array 返回数组
+ *  demo：
+ * $array = ['a' => 111, 'b' => 222, 'c' => 3333, 'd' => 444]
+ * $keys = ['b', 'd']
+ * getByKeys($array, $keys) 结果 ['b' => 222, 'd' => 444]
+ */
+function getArrayByKeys(array $array, array $keys)
+{
+    return array_intersect_key($array, array_flip($keys));
+}
+
+/**
+ * 取得$array数组中 除了键值为$except_keys的数组的所有元素
+ * 该函数和 @see getArrayByKeys 作用相反
+ * @param array $array
+ * @param array $except_keys
+ * @return array
+ *  demo：
+ * $array = ['a' => 111, 'b' => 222, 'c' => 3333, 'd' => 444]
+ * $except_keys = ['b', 'd']
+ * getByExceptKeys($array, $except_keys) 结果 ['a' => 111, 'c' => 333]
+ */
+function getArrayByExceptKeys(array $array, array $except_keys)
+{
+    return array_diff_key($array, array_flip($except_keys));
 }
