@@ -16,7 +16,8 @@
             "DependencyInjection\\": "./DependencyInjection",
             "Adapter\\": "./Adapter",
             "Bridge\\": "./Bridge",
-            "Composite\\": "./Composite"
+            "Composite\\": "./Composite",
+            "Decorator\\": "./Decorator"
         }
     }
 }

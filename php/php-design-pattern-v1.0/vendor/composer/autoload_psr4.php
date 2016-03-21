@@ -16,6 +16,7 @@ return array(
     'FactoryMethod\\' => array($baseDir . '/FactoryMethod'),
     'Doctrine\\Instantiator\\' => array($vendorDir . '/doctrine/instantiator/src/Doctrine/Instantiator'),
     'DependencyInjection\\' => array($baseDir . '/DependencyInjection'),
+    'Decorator\\' => array($baseDir . '/Decorator'),
     'Composite\\' => array($baseDir . '/Composite'),
     'Builder\\' => array($baseDir . '/Builder'),
     'Bridge\\' => array($baseDir . '/Bridge'),
